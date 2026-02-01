@@ -30,6 +30,8 @@ function App() {
   const [score, setScore] = useState(0);
   const [moves, setMoves] = useState(0);
 
+  const [isLocked, setIsLocked] = useState(false);
+
   const initializeGame = () => {
     const finalCards = cardValues.map((value, index) => ({
       id: index,
@@ -50,7 +52,7 @@ function App() {
   }, []);
 
   const handleCardClick = (card) => {
-    if (card.isFlipped || card.isMatched) {
+    if (card.isFlipped || card.isMatched || isLocked || flippedCard.length===2) {
       return;
     }
 
@@ -67,6 +69,8 @@ function App() {
     setFlippedCard(newFlippedCard);
 
     if (flippedCard.length === 1) {
+
+      setIsLocked(true);
       const firstCard = cards[flippedCard[0]];
 
       if (firstCard.value === card.value) {
@@ -90,6 +94,7 @@ function App() {
 
 
           setFlippedCard([]);
+          setIsLocked(false);
         }, 500);
 
       } else {
@@ -102,6 +107,8 @@ function App() {
 
           setCards(flippedBackCard);
           setFlippedCard([]);
+          setIsLocked(false);
+
         }, 1000);
       }
 
