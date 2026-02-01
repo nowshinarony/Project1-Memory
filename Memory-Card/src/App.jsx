@@ -32,8 +32,19 @@ function App() {
 
   const [isLocked, setIsLocked] = useState(false);
 
+  const shuffleArray = (array) => {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+  };
+
   const initializeGame = () => {
-    const finalCards = cardValues.map((value, index) => ({
+
+    const shuffle = shuffleArray(cardValues);
+    const finalCards = shuffle.map((value, index) => ({
       id: index,
       value,
       isFlipped: false,
@@ -45,6 +56,7 @@ function App() {
     setScore(0);
     setMatchedCards([]);
     setFlippedCard([]);
+    setIsLocked(false);
   };
 
   useEffect(() => {
