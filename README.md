@@ -3,4 +3,4 @@ I made this project by learning from PedroTech's youtube video. Here is the link
 
 Here is a video of my working project:
 
-https://github.com/user-attachments/assets/99ec6087-d2e2-43be-b620-8675626541ee
+https://github.com/user-attachments/assets/558c2999-b9c4-40db-95c8-5dda98881f37
