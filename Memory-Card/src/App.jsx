@@ -2,7 +2,7 @@
 import { GameHeader } from "./components/GameHeader";
 import { Card } from "./components/Card";
 import { WinMessage } from "./components/WinMessage";
-import { GameLogic } from "./hooks/GameLogic";
+import { UseGameLogic } from "./hooks/useGameLogic";
 
 const cardValues = [
   "🍎",
@@ -31,7 +31,7 @@ function App() {
     isGameComplete,
     initializeGame,
     handleCardClick,
-  } = GameLogic(cardValues);
+  } = UseGameLogic(cardValues);
 
   return (
     <div className="app">

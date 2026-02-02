@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export const GameLogic = (cardValues) => {
+export const UseGameLogic = (cardValues) => {
   const [cards, setCards] = useState([]);
 
   const [flippedCard, setFlippedCard] = useState([]);
